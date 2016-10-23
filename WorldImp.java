@@ -60,8 +60,7 @@ public abstract class WorldImp implements World{
 			   } 
 		    }  
 	   }
-	   
-	   //TODO: Complete here in parent
+	  
 	   public World nextGeneration(int log2StepSize) {
 	      //Remember to call nextGeneration 2^log2StepSize times
 		   WorldImp world = this;
@@ -73,7 +72,6 @@ public abstract class WorldImp implements World{
 		     return world;
 	   }
 
-	   //TODO: Complete here in parent
 	   public void print(Writer w) {
 	      //Use getCellAsString to get text representation of the cell
 		   PrintWriter pw = new PrintWriter(w);
@@ -89,7 +87,6 @@ public abstract class WorldImp implements World{
 		   } 
 	   }
 	 
-	   //TODO: Complete here in parent
 	   protected int countNeighbours(int col, int row) {
 	      //Compute the number of live neighbours
 			int neighbours=0;
@@ -103,7 +100,6 @@ public abstract class WorldImp implements World{
 			return neighbours;
 	   }
 
-	   //TODO: Complete here in parent
 	   protected boolean computeCell(int col, int row) {
 	      //Compute whether this cell is alive or dead in the next generation
 	      //using "countNeighbours"
@@ -117,21 +113,15 @@ public abstract class WorldImp implements World{
 			else if (neighbours ==2) return getCell(col,row);
 			
 			//things get exciting when you have 3 friends
-			else if (neighbours == 3) return true;
-			
-			//ghosts are not friends
-			else {
-				System.out.println("Error");
-				return false;
-			}
+			else return true;
 	   }
 
-	   // Will be implemented by child class. Return true if cell (col,row) is alive.
+	   //Return true if cell (col,row) is alive.
 	   public abstract boolean getCell(int col,int row);
 
-	   // Will be implemented by child class. Set a cell to be live or dead.
+	   //Set a cell to be live or dead.
 	   public abstract void setCell(int col, int row, boolean alive);
 
-	   // Will be implemented by child class. Step forward one generation.
+	   //Step forward one generation.
 	   protected abstract WorldImp nextGeneration();
 }
