@@ -16,7 +16,6 @@ public class PatternLoader {
 		 BufferedReader buff = new BufferedReader(r);
 		 List <Pattern> resultList = new LinkedList<Pattern>();
 		 
-		 //TODO: \t to tab betwn stuff
 		 String line;
 		 
 		 //Read and add all valid patterns into resultList
